@@ -1,0 +1,19 @@
+.section{
+    width: 90%;
+    margin: 20px auto ;
+}
+#card-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card{
+    min-width: 20%;
+    padding: 10px;
+}
+button{
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+}

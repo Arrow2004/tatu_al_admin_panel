@@ -1,0 +1,38 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<link rel="stylesheet" href="{{url}}styles/news.css">
+<div class="section" id="all-news">
+    <h2>Yangiliklar ro'yxati</h2>
+    <div id="card-box">
+        {{#each news}}
+    <div class="card">
+        Nomi: {{this.title}} <br>
+        Link: <a href="{{url}}news/one/{{this.link}}">{{this.link}}</a>
+
+    </div>
+    {{/each}}
+    </div>
+</div>
+<div class="section">
+    <h2>Yangilik qo'shish</h2>
+    <form action="/news/create" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Yangilik sarlavhasi</label>
+            <input name="title" type="text" class="form-control" id="title" aria-describedby="title">
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Maqola matni</label>
+            <textarea name="body" class="form-control" id="body" rows="3"></textarea>
+        </div>
+        <center><button type="submit" class="btn btn-primary">Yaratish</button></center>
+    </form>
+</div>
+<script>
+    ClassicEditor
+            .create(document.querySelector('#body'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+</script>
